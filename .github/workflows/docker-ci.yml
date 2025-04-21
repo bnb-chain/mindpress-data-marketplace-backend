@@ -44,5 +44,7 @@ jobs:
           VERSION=update-deps-20250421
           echo IMAGE_NAME=$IMAGE_NAME
           echo VERSION=$VERSION
-          docker tag $IMAGE_NAME $IMAGE_NAME:$VERSION
-          docker push $IMAGE_NAME:$VERSION
+          docker tag ${IMAGE_NAME}:server-distroless $IMAGE_NAME:$VERSION-server-distroless
+          docker tag ${IMAGE_NAME}:monitor-distroless $IMAGE_NAME:$VERSION-monitor-distroless
+          docker push $IMAGE_NAME:$VERSION-server-distroless
+          docker push $IMAGE_NAME:$VERSION-monitor-distroless
